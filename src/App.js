@@ -7,7 +7,8 @@ import Projects from "./components/pages/Projects";
 import Plots from "./components/pages/Plots"
 import Users from "./components/pages/Users";
 import Dashboard from "./components/pages/Dashboard";
-import Gallery from "./components/pages/Gallery"
+import Gallery from "./components/pages/Gallery";
+import ProjectDetails from "./components/pages/ProjectDetails";
 const useStyles = makeStyles(theme =>({
   container:{
     display:"flex"
@@ -22,8 +23,10 @@ const useStyles = makeStyles(theme =>({
 const theme = createMuiTheme({
   palette:{
     primary:{
-      main:"#333996",
-      light:"#3c44b126"
+      // main:"#333996",
+      main:"#bda000",
+      light:"#fafad2",
+      // light:"#3c44b126"
     },
     secondary:{
       main:"#f83245",
@@ -63,9 +66,10 @@ function App() {
           <div className={classess.content}>
         <Route path="/" component={Dashboard} exact/>
         <Route path="/projects" component={Projects} exact/>
-        <Route path="/plots" component={Plots} />
-        <Route path="/users" component={Users}/>
-        <Route path="/gallery" component={Gallery}/>
+        <Route path="/projects/:id" component={ProjectDetails} exact/>
+        <Route path="/plots" component={Plots} exact/>
+        <Route path="/users" component={Users} exact/>
+        <Route path="/gallery" component={Gallery} exact/>
         </div>
         </Switch>
       </Router>

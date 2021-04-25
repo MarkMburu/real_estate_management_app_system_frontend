@@ -21,10 +21,10 @@ const useStyles = makeStyles(theme=>({
       },
       drawerColor:{
          backgroundColor:"#fff",
-         color:"rgb(179, 0, 0)"
+         color:"#bda000"
       },
       paper: {
-        background: "rgb(64, 54, 8)",
+        background: "#ae8d0b",
         color:"#fff"
       },
   drawer:{

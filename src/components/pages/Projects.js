@@ -33,9 +33,9 @@ const headCells=[
     {id:"projectName",label:"Projects Name"},
     {id:"NumberOf Plots",label:"Number Of plots"},
     {id:"ProjectsDetails",label:"Project Details"},
+    {id:"image",label:"ProjectImage"},
     {id:"updatedat",label:"updated _at"},
     {id:"actions",label:"Actions",disableSorting:true}
-
 
 ]
 
@@ -132,11 +132,12 @@ async function fetchedProjects(){
              <TableBody>
                  
                  {recordsAfterPagingAndSorting().map((item)=>(
-                      <TableRow key={item._id} >
-                          <TableCell onClick={ () => history.push("/projects/"+item._id)}>{item.projectname}</TableCell>
-                         <TableCell onClick={ () => history.push("/projects/"+item._id)}>{item.numberofplots}</TableCell>
-                         <TableCell onClick={ () => history.push("/projects/"+item._id)}>{item.projectname}</TableCell>
-                         <TableCell onClick={ () => history.push("/projects/"+item._id)}>{new Date(item.updated_at).toLocaleDateString()}</TableCell>
+                      <TableRow key={item.id} >
+                          <TableCell onClick={ () => history.push("/projects/"+item.id)}>{item.projectname}</TableCell>
+                         <TableCell onClick={ () => history.push("/projects/"+item.id)}>{item.numberofplots}</TableCell>
+                         <TableCell onClick={ () => history.push("/projects/"+item.id)}>{item.projectname}</TableCell>
+                         <TableCell onClick={ () => history.push("/projects/"+item.id)}><img src={`data:image/png;base64,${new Buffer.from(item.image.data).toString("base64")}`} alt="" height="30px" width="50px"/></TableCell>
+                         <TableCell onClick={ () => history.push("/projects/"+item.id)}>{new Date(item.updated_at).toLocaleDateString()}</TableCell>
                          <TableCell>
                              <Controls.ActionButton color="primary" onClick={()=>{openInPopUp(item);}}>
                                  <EditOutlinedIcon fontSize="small" />
