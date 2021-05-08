@@ -63,7 +63,7 @@ export async function getAllProjects() {
 
 export function deleteProject(id){
   try{
-    axios.delete(`${uri}/${id}`)
+    axios.delete(`${uri}${id}`)
     .then((response) => {
       console.log(response.data);
     }, (error) => {
